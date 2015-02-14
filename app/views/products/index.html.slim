@@ -1,0 +1,22 @@
+h1 Listing products
+
+table
+  - @products.each do |product|
+    tr[class="#{ cycle('list-line-odd', 'list-line_even') }"]
+      td
+        = image_tag(product.image_url, class: 'list-image')
+      td[class="list-description"]
+        dl
+          dt= product.title
+          dt= truncate(strip_tags(product.description), length: 80)
+      td[class="list-actions"]
+        = link_to 'Show', product
+        br
+        = link_to 'Edit', edit_product_path(product)
+        br
+        = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+
+
+br
+
+= link_to 'New Product', new_product_path

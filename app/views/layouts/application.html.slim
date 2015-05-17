@@ -8,4 +8,19 @@ head
 
 
 body[class="#{ controller_name }"]
-  = yield
+  div[id="banner"]
+    = image_tag "logo.png"
+    = @page_title || "Pragmatic Bookshelf"
+  div[id="columns"]
+    div[id="side"]
+      ul
+        li
+          a[href="#"] Home
+        li
+          a[href="#"] Questions
+        li
+          a[href="#"] News
+        li
+          a[href="#"] Contact
+    div[id="main"]
+      = yield
